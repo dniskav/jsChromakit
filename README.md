@@ -1,2 +1,2 @@
 # jsChromakit
-a Chromakit in javascript
+a Chroma key in javascript
