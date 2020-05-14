@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chromakit</title>
+    <title>Chroma-kit</title>
     <script src="chroma.js"></script>
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -40,8 +40,23 @@
             </fieldset>
 
             <div id="colorSample" class="show-color"></div>
+
+            <input type="file" id="coverImage" onchange="loadImage(event)" />
         </div>
         `);
+
+        const loadImage = (event) => {
+            const selectedFile = event.target.files[0];
+            const reader = new FileReader();
+            const container = document.getElementById('canvas');
+
+            reader.onload = (event) => {
+                container.style = (`background-image: url(${event.target.result})`);
+            };
+
+            reader.readAsDataURL(selectedFile);
+        }
+
         const showValue = (value) => {
             config.value = parseInt(value);
             document.querySelector('#showThreshold').textContent = config.value;

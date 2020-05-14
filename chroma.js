@@ -1,7 +1,6 @@
 const chroma = (config) => {
     const video = document.getElementById('video');
     const canvas = document.getElementById('canvas');
-    replaceColor = 'green';
 
     const chromakey = (ctx, video, width, height) => {
         ctx.drawImage(video, 0, 0, width, height);
@@ -53,7 +52,7 @@ const chroma = (config) => {
         canvas.height = video.videoHeight;
         window.setInterval(() => {
             chromakey(ctx, video, canvas.width, canvas.height);
-        }, 0);
+        }, 40);
     });
 
 };
